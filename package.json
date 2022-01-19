@@ -4,9 +4,9 @@
         "name": "zzerexx"
     },
     "name": "krnl-snippets",
-    "displayName": "krnl code snippets for vs code",
-    "description": "adds krnl code snippets",
-    "version": "1.0.0",
+    "displayName": "Krnl Code Snippets",
+    "description": "Adds Krnl code snippets.",
+    "version": "1.0.1",
     "icon": "images/icon.png",
     "engines": {
         "vscode": "^1.60.0"
