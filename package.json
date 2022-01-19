@@ -1,12 +1,12 @@
 {
-    "publisher": "gitmylo",
+    "publisher": "zzerexx",
     "author": {
-        "name": "Mylo"
+        "name": "zzerexx"
     },
-    "name": "synapse-x-vs-code",
-    "displayName": "synapse x lua code snippets for vs code",
-    "description": "adds synapse x lua code snippets",
-    "version": "1.0.2",
+    "name": "krnl-snippets",
+    "displayName": "krnl code snippets for vs code",
+    "description": "adds krnl code snippets",
+    "version": "1.0.0",
     "icon": "images/icon.png",
     "engines": {
         "vscode": "^1.60.0"
@@ -24,7 +24,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/gitmylo/synapse-x-vs-code.git"
+        "url": "https://github.com/zzerexx/krnl-vsc.git"
     },
-    "homepage": "https://github.com/gitmylo/synapse-x-vs-code/blob/master/README.md"
+    "homepage": "https://github.com/zzerexx/krnl-vsc/blob/master/README.md"
 }
