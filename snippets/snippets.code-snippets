@@ -1,951 +1,1032 @@
 {
-      //Synapse x specific
-      //1: Environment functions
-      "Get Global Environment": {
+    // 1 - Environment
+    "Get Global Environment": {
         "prefix": "getgenv",
         "body": [
-          "getgenv()"
+            "getgenv()"
         ],
-        "description": "Returns the environment that will be applied to each script ran by Synapse."
-      },
-      "Get Environment": {
+        "description": "Returns the global exploit environment."
+    },
+    "Get Roblox Environment": {
         "prefix": "getrenv",
         "body": [
-          "getrenv()"
+            "getrenv()"
         ],
-        "description": "Returns the global environment for the LocalScript state."
-      },
-      "Get Registry": {
-        "prefix": "getreg",
-        "body": [
-          "getreg()"
-        ],
-        "description": "Returns the Lua registry."
-      },
-      "Get Garbage Collection": {
-        "prefix": "getgc",
-        "body": [
-          "getgc()"
-        ],
-        "description": "Returns all functions and userdata values within the GC. Passing true will also return tables."
-      },
-      "Get Instances": {
-        "prefix": "getinstances",
-        "body": [
-          "getinstances()"
-        ],
-        "description": "Returns a list of all instances within the game."
-      },
-      "Get Nil Instances": {
-        "prefix": "getnilinstances",
-        "body": [
-          "getnilinstances()"
-        ],
-        "description": "Returns a list of all instances parented to nil within the game."
-      },
-      "Get Scripts": {
-        "prefix": "getscripts",
-        "body": [
-          "getscripts()"
-        ],
-        "description": "Returns a list of all scripts within the game."
-      },
-      "Get Loaded Modules": {
-        "prefix": "getloadedmodules",
-        "body": [
-          "getloadedmodules()"
-        ],
-        "description": "Returns all ModuleScripts loaded in the game."
-      },
-      "Get Connections": {
-        "prefix": "getconnections",
-        "body": [
-          "getconnections(${1:obj})"
-        ],
-        "description": "Gets a list of connections to the specified signal. You can do the following operations on a Connection: https://x.synapse.to/docs/reference/environment.html#get-connections"
-      },
-      "Fire signal": {
-        "prefix": "firesignal",
-        "body": [
-          "firesignal(${1:Signal}, ${2:Args...})"
-        ],
-        "description": "Fires all the connections connected to the signal Signal with Args."
-      },
-      "Fire Click Detector": {
-        "prefix": "fireclickdetector",
-        "body": [
-          "fireclickdetector(${1:Detector}, ${2:Distance})"
-        ],
-        "description": "Fires the designated ClickDetector with provided Distance. If Distance isn't provided, it will default to 0."
-      },
-      "Fire Proximity Prompt": {
-        "prefix": "fireproximityprompt",
-        "body": [
-          "fireproximityprompt(${1:Prompt}, ${2:Distance})"
-        ],
-        "description": "Fires the designated ProximityPrompt."
-      },
-      "Fire Touch Interest": {
-        "prefix": "firetouchinterest",
-        "body": [
-          "firetouchinterest(${1:Part}, ${2:ToTouch}, ${3:Toggle})"
-        ],
-        "description": "Fakes a .Touched event to ToTouch with Part. The Toggle argument must be either 0 or 1 (for fire/un-fire)."
-      },
-      "Is Network Owner": {
-        "prefix": "isnetworkowner",
-        "body": [
-          "isnetworkowner(${1:Part})"
-        ],
-        "description": "Returns true if the Part is owned by the player."
-      },
-      "Get Hidden Property": {
-        "prefix": "gethiddenproperty",
-        "body": [
-          "gethiddenproperty(${1:Object}, ${2:Property})"
-        ],
-        "description": "Returns the hidden property Property from Object. Errors if the property does not exist."
-      },
-      "Set Simulation Radius": {
-        "prefix": "setsimulationradius",
-        "body": [
-          "setsimulationradius(${1:SimulationRadius})"
-        ],
-        "description": "Set Simulation Radius"
-      },
-
-      //2: Script functions
-      "Get Script Environment": {
+        "description": "Returns the global Roblox environment."
+    },
+    "Get Script Environment": {
         "prefix": "getsenv",
         "body": [
-          "getsenv(${1:Script})"
+            "getsenv(${1:Script})"
         ],
-        "description": "Returns the environment of Script. Errors if the script is not loaded in memory."
-      },
-      "Get Calling Script": {
-        "prefix": "getcallingscript",
+        "description": "description"
+    },
+    "Get Lua Registry": {
+        "prefix": ["getreg", "getregistry", "debug.getregistry"],
         "body": [
-          "getcallingscript()"
+            "getreg()"
         ],
-        "description": "Gets the script that is calling this function. "
-      },
-      "Get Script Closure": {
-        "prefix": "getscriptclosure",
+        "description": "Returns the Lua Registry"
+    },
+    "Get Garbage Collection": {
+        "prefix": "getgc",
         "body": [
-          "getscriptclosure(${1:Script})"
+            "getgc(${1:IncludeTables?})"
         ],
-        "description": "Gets a bare function from the script passed. Please note this is not the original function of the script and will not have upvalues/enviornment correctly defined."
-      },
-      "Get Script Hash": {
+        "description": "Returns all functions and userdata values within the Garbage Collection. Passing true will also return tables."
+    },
+    "Get Instances": {
+        "prefix": "getinstances",
+        "body": [
+            "getinstances()"
+        ],
+        "description": "Returns a table of all instances within the game. This includes nil instances."
+    },
+    "Get Nil Instances": {
+        "prefix": "getnilinstances",
+        "body": [
+            "getnilinstances()"
+        ],
+        "description": "Returns a table of all instances within the game that are parented to nil."
+    },
+    "Get Instance Cache": {
+        "prefix": "getinstancecache",
+        "body": [
+            "getinstancecache()"
+        ],
+        "description": "Returns a table of all instances within the cache."
+    },
+    "Get Scripts": {
+        "prefix": "getscripts",
+        "body": [
+            "getscripts()"
+        ],
+        "description": "Returns a table of all LocalScripts and ModuleScripts within the game."
+    },
+    "Get Loaded Modules": {
+        "prefix": "getloadedmodules",
+        "body": [
+            "getloadedmodules()"
+        ],
+        "description": "Returns a table of all ModuleScripts that are loaded in the game."
+    },
+    "Get Connections": {
+        "prefix": "getconnections",
+        "body": [
+            "getconnections(${1:Signal})"
+        ],
+        "description": "Returns a table of all connections to the specified Signal."
+    },
+    "Fire Signal": {
+        "prefix": "firesignal",
+        "body": [
+            "firesignal(${1:Signal}, ${2:Args...})"
+        ],
+        "description": "Fires all connections connected to Signal with Args."
+    },
+    "Fire Click Detector": {
+        "prefix": "fireclickdetector",
+        "body": [
+            "fireclickdetector(${1:ClickDetector}, ${2:Distance?}, ${3:Flag?})"
+        ],
+        "description": "Fires the specified ClickDetector with provided Distance and Flag."
+    },
+    "Fire Touch Interest": {
+        "prefix": "firetouchinterest",
+        "body": [
+            "firetouchinterest(${1:Part}, ${2:OtherPart}, ${3:Touching})"
+        ],
+        "description": "Fires a Touched event on OtherPart with Part."
+    },
+    "Fire Proximity Prompt": {
+        "prefix": "fireproximityprompt",
+        "body": [
+            "fireproximityprompt()"
+        ],
+        "description": "Fires a Triggered event on Prompt."
+    },
+    "Get Hidden Property": {
+        "prefix": "gethiddenproperty",
+        "body": [
+            "gethiddenproperty(${1:Object}, ${2:Property})"
+        ],
+        "description": "Returns Object's hidden Property."
+    },
+    "Set Hidden Property": {
+        "prefix": "sethiddenproperty",
+        "body": [
+            "sethiddenproperty(${1:Object}, ${2:Property}, ${3:Value})"
+        ],
+        "description": "Sets Object's hidden Property to Value."
+    },
+    "Get Properties": {
+        "prefix": "getproperties",
+        "body": [
+            "getproperties(${1:Object})"
+        ],
+        "description": "Returns all properties of Object."
+    },
+    "Set Simulation Radius": {
+        "prefix": "setsimulationradius",
+        "body": [
+            "setsimulationradius(${1:Radius}, ${2:MaxRadius?})"
+        ],
+        "description": "Sets the local player's SimulationRadius to Radius with optional MaxRadius."
+    },
+    "Get Script Bytecode": {
+        "prefix": "getscriptbytecode",
+        "body": [
+            "getscriptbytecode(${1:Script})"
+        ],
+        "description": "Returns Script's bytecode."
+    },
+    "Get Script Hash": {
         "prefix": "getscripthash",
         "body": [
-          "getscripthash(${1:Script})"
+            "getscripthash(${1:Script})"
         ],
-        "description": "Returns a SHA384 hash of the scripts bytecode. You can use this to detect changes of a script."
-      },
-
-      //3: Table functions
-      "Get Raw Metatable": {
-        "prefix": "getrawmetatable",
+        "description": "Returns Script's hashed bytecode. (SHA_384)"
+    },
+    "Get Thread Context": {
+        "prefix": "getthreadcontext",
         "body": [
-          "getrawmetatable(${1:value})"
+            "getthreadcontext()"
         ],
-        "description": "Retrieve the metatable of value irregardless of value's metatable's __metatable field. Returns nil if it doesn't exist."
-      },
-      "Set Raw Metatable": {
-        "prefix": "setrawmetatable",
+        "description": "Returns the current thread context."
+    },
+    "Set Thread Context": {
+        "prefix": "setthreadcontext",
         "body": [
-          "setrawmetatable(${1:o}, ${2:mt})"
+            "setthreadcontext(${1:Context})"
         ],
-        "description": "Sets o's metatable to mt even if the __metatable field exists in o's metatable."
-      },
-      "Set Readonly": {
-        "prefix": "setreadonly",
-        "body": [
-          "setreadonly(${1:t}, ${2:val})"
-        ],
-        "description": "Sets t's read-only value to val."
-      },
-      "Is Readonly": {
-        "prefix": "isreadonly",
-        "body": [
-          "isreadonly(${1:t})"
-        ],
-        "description": "Returns t's read-only condition. "
-      },
-
-      //4: Input functions
-      "Is Active": {
-        "prefix": "iswindowactive",
-        "body": [
-          "iswindowactive()"
-        ],
-        "description": "Returns if the main window is in focus. This must return true for any other mouse/keyboard function to work."
-      },
-      "Keyboard press": {
-        "prefix": "keypress",
-        "body": [
-          "keypress(${1:keycode})"
-        ],
-        "description": "Simulates a key press for the specified keycode. Keycodes are listed here(https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)."
-      },
-      "Keyboard release": {
-        "prefix": "keyrelease",
-        "body": [
-          "keyrelease(${1:key})"
-        ],
-        "description": "Releases key on the keyboard. Keycodes are listed here(https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)."
-      },
-      "Left Click": {
-        "prefix": "mouse1click",
-        "body": [
-          "mouse1click()"
-        ],
-        "description": "Simulates a full left mouse button press."
-      },
-      "Left Click press": {
-        "prefix": "mouse1press",
-        "body": [
-          "mouse1press()"
-        ],
-        "description": "Simulates a left mouse button press without releasing it."
-      },
-      "Left Click release": {
-        "prefix": "mouse1release",
-        "body": [
-          "mouse1release()"
-        ],
-        "description": "Simulates a left mouse button release."
-      },
-      "Right Click": {
-        "prefix": "mouse2click",
-        "body": [
-          "mouse2click()"
-        ],
-        "description": "Simulates a full right mouse button press."
-      },
-      "Right Click press": {
-        "prefix": "mouse2press",
-        "body": [
-          "mouse2press()"
-        ],
-        "description": "Clicks down on the right mouse button."
-      },
-      "Right Click release": {
-        "prefix": "mouse2release",
-        "body": [
-          "mouse2release()"
-        ],
-        "description": "Simulates a right mouse button release."
-      },
-      "Mouse Movement Scroll": {
-        "prefix": "mousescroll",
-        "body": [
-          "mousescroll(${1:px})"
-        ],
-        "description": "Scrolls the mouse wheel virtually by px pixels."
-      },
-      "Mouse Movement Relative": {
-        "prefix": "mousemoverel",
-        "body": [
-          "mousemoverel(${1:x}, ${2:y})"
-        ],
-        "description": "Moves the mouse cursor relatively to the current mouse position by coordinates x and y."
-      },
-      "Mouse Movement Absolute": {
-        "prefix": "mousemoveabs",
-        "body": [
-          "mousemoveabs(${1:x}, ${2:y})"
-        ],
-        "description": "Move's your mouse to the x and y coordinates in pixels from topleft of the main window."
-      },
-
-      //5: Hooking functions
-      "Hook Function": {
-        "prefix": "hookfunction",
-        "body": [
-          "hookfunction(${1:old}, ${2:hook})"
-        ],
-        "description": "Hooks function old, replacing it with the function hook. The old function is returned, you must use this function in order to call the original function."
-      },
-      "Hook Metamethod": {
-        "prefix": "hookmetamethod",
-        "body": [
-          "hookmetamethod(${1:object}, ${2:metamethod}, ${3:hook})"
-        ],
-        "description": "Hooks the metamethod passed in the object's metatable with hook. A function to call the original metamethod is returned, you must use this function in order to call the original metamethod. This function will error if an object without a metatable is passed or a invalid metamethod is passed."
-      },
-      "New C Closure": {
-        "prefix": "newcclosure",
-        "body": [
-          "newcclosure(${1:f})"
-        ],
-        "description": "Pushes a new CClosure that invokes function f upon call."
-      },
-
-      //6: Reflection functions
-      "Loadstring": {
+        "description": "Sets the current thread's context to Context."
+    },
+    "Loadstring": {
         "prefix": "loadstring",
         "body": [
-          "loadstring(${1:chunk})"
+            "loadstring(${1:Chunk}, ${2:ChunkName?})"
         ],
-        "description": "Loads chunk as a Lua function with optional chunk_name and returns it if compilation is successful. Otherwise, if an error has occurred during compilation, nil followed by the error message will be returned."
-      },
-      "Check Caller": {
+        "description": "Loads Chunk as a Lua function with optional ChunkName and returns it."
+    },
+    "Set Scriptable": {
+        "prefix": "setscriptable",
+        "body": [
+            "setscriptable(${1:Object}, ${2:Property}, ${3:Scriptable})"
+        ],
+        "description": "Sets Object's Property to be scriptable or not."
+    },
+    "Get Callback Value": {
+        "prefix": ["getcallbackvalue", "getcallbackmember"],
+        "body": [
+            "getcallbackvalue(${1:Object}, ${2:Signal})"
+        ],
+        "description": "Allows you to get the function back from callbacks. This value is traditionally write-only."
+    },
+    "Get Module Unlocked": {
+        "prefix": "getmoduleunlocked",
+        "body": [
+            "getmoduleunlocked(${1:Module})"
+        ],
+        "description": "Returns true if Module is unlocked."
+    },
+    "Set Module Unlocked": {
+        "prefix": "setmoduleunlocked",
+        "body": [
+            "setmoduleunlocked(${1:Module}, ${2:Unlocked})"
+        ],
+        "description": "Sets Module's unlocked state to Unlocked."
+    },
+
+    // 2 - Metatable
+    "Get Raw Metatable": {
+        "prefix": ["getrawmetatable", "debug.getmetatable"],
+        "body": [
+            "getrawmetatable(${1:Table})"
+        ],
+        "description": "Returns Table's raw metatable, bypassing the __metatable field."
+    },
+    "Set Raw Metatable": {
+        "prefix": ["setrawmetatable", "debug.setmetatable"],
+        "body": [
+            "setrawmetatable(${1:Table}, ${2:New})"
+        ],
+        "description": "Sets Table's metatable to New."
+    },
+    "Set Read Only": {
+        "prefix": "setreadonly",
+        "body": [
+            "setreadonly(${1:Table}, ${2:Value})"
+        ],
+        "description": "Sets Table's read-only condition to Value."
+    },
+    "Is Read Only": {
+        "prefix": "isreadonly",
+        "body": [
+            "isreadonly(${1:Table})"
+        ],
+        "description": "Returns Table's read-only condition."
+    },
+    "Hook Metamethod": {
+        "prefix": "hookmetamethod",
+        "body": [
+            "hookmetamethod(${1:Object}, ${2:Metamethod}, ${3:Function})"
+        ],
+        "description": "description"
+    },
+
+    // 3 - Input
+    "Is Roblox Active": {
+        "prefix": "isrbxactive",
+        "body": [
+            "isrbxactive()"
+        ],
+        "description": "Returns true if the main window is in focus."
+    },
+    "Key Press": {
+        "prefix": "keypress",
+        "body": [
+            "keypress(${1:Keycode})"
+        ],
+        "description": "Simulates a key press for the specified Keycode."
+    },
+    "Key Release": {
+        "prefix": "keyrelease",
+        "body": [
+            "keyrelease(${1:Keycode})"
+        ],
+        "description": "Simulates a key release for the specified Keycode."
+    },
+    "Left Mouse Click": {
+        "prefix": "mouse1click",
+        "body": [
+            "mouse1click()"
+        ],
+        "description": "Simulates a left mouse button click."
+    },
+    "Left Mouse Press": {
+        "prefix": ["mouse1press", "mouse1down"],
+        "body": [
+            "mouse1press()"
+        ],
+        "description": "Simulates a left mouse button press."
+    },
+    "Left Mouse Release": {
+        "prefix": ["mouse1release", "mouse1down"],
+        "body": [
+            "mouse1release()"
+        ],
+        "description": "Simulates a left mouse button release."
+    },
+    "Right Mouse Click": {
+        "prefix": "mouse2click",
+        "body": [
+            "mouse2click()"
+        ],
+        "description": "Simulates a right mouse button click."
+    },
+    "Right Mouse Press": {
+        "prefix": ["mouse2press", "mouse2down"],
+        "body": [
+            "mouse2press()"
+        ],
+        "description": "Simulates a right mouse button press."
+    },
+    "Right Mouse Release": {
+        "prefix": ["mouse2release", "mouse2down"],
+        "body": [
+            "mouse2release()"
+        ],
+        "description": "Simulates a right mouse button release."
+    },
+    "Mouse Scroll": {
+        "prefix": "mousescroll",
+        "body": [
+            "mousescroll(${1:Pixels})"
+        ],
+        "description": "Scrolls the mouse wheel virtuallu by Pixels."
+    },
+    "Mouse Move Relative": {
+        "prefix": "mousemoverel",
+        "body": [
+            "mousemoverel(${1:X}, ${2:Y})"
+        ],
+        "description": "Moves the mouse cursor relative to the current mouse position to coordinates X and Y."
+    },
+    "Mouse Move Absolute": {
+        "prefix": "mousemoveabs",
+        "body": [
+            "mousemoveabs(${1:X}, ${2:Y})"
+        ],
+        "description": "Moves the mouse cursor to the X and Y coordinates in pixels from the top left of the main window."
+    },
+
+    // 4 - Closure
+    "Check Caller": {
         "prefix": "checkcaller",
         "body": [
-          "checkcaller()"
+            "checkcaller()"
         ],
-        "description": "Returns true if the current thread is a Synapse thread. Note: Checkcaller does NOT check the call stack of the function, if you call a game function then it calls out to checkcaller, the result will be true! Be careful."
-      },
-      "Is Lua Closure": {
+        "description": "Returns true if the current thread was created by Krnl."
+    },
+    "Get Script Closure": {
+        "prefix": "getscriptclosure",
+        "body": [
+            "getscriptclosure(${1:Script})"
+        ],
+        "description": "Returns a new copy of Script's closure."
+    },
+    "New C Closure": {
+        "prefix": "newcclosure",
+        "body": [
+            "newcclosure(${1:Function})"
+        ],
+        "description": "Pushes a new C closure that invokes the function f upon call."
+    },
+    "Hook Function": {
+        "prefix": ["hookfunction", "hookfunc"],
+        "body": [
+            "hookfunction(${1:Old}, ${2:New})"
+        ],
+        "description": "Hooks function Old, replacing it with the function New. The old function is returned, you must use this function is order to call the original function."
+    },
+    "Is C Closure": {
+        "prefix": "iscclosure",
+        "body": [
+            "iscclosure(${1:Function})"
+        ],
+        "description": "Returns true if Function is a C closure."
+    },
+    "Is Lua Closure": {
         "prefix": "islclosure",
         "body": [
-          "islclosure(${1:f})"
+            "islclosure(${1:Function})"
         ],
-        "description": "Returns true if f is an LClosure."
-      },
-      "Dump String": {
-        "prefix": "dumpstring",
+        "description": "Returns true if Function is a Lua closure."
+    },
+    "Is Krnl Closure": {
+        "prefix": ["iskrnlclosure", "checkclosure"],
         "body": [
-          "dumpstring(${1:script})"
+            "iskrnlclosure(${1:Function})"
         ],
-        "description": "Returns the Synapse formatted bytecode for source string script."
-      },
-      "Decompile": {
-        "prefix": "decompile",
+        "description": "Returns true if Function is a Krnl closure."
+    },
+    "Get Calling Script": {
+        "prefix": "getcallingscript",
         "body": [
-          "decompile(${1:Script})"
+            "getcallingscript()"
         ],
-        "description": "Decompiles Script and returns the decompiled script with timeout. If the decompilation fails, then the return value will be an error message. Note: The mode parameter is deprecated and is not used in newer versions of Synapse."
-      },
+        "description": "Returns the script that is calling the current function."
+    },
 
-      //7: Console functions
-      "Console Print": {
-        "prefix": "rconsoleprint",
-        "body": [
-          "rconsoleprint(${1:message})"
-        ],
-        "description": "Prints message into the console. rconsoleprint also supports colors. for more info: https://x.synapse.to/docs/reference/console.html#console-print"
-      },
-      "Console Info": {
-        "prefix": "rconsoleinfo",
-        "body": [
-          "rconsoleinfo(${1:message})"
-        ],
-        "description": "Prints message into the console, with a info text before it."
-      },
-      "Console Warn": {
-        "prefix": "rconsolewarn",
-        "body": [
-          "rconsolewarn(${1:message})"
-        ],
-        "description": "Prints message into the console, with a warning text before it."
-      },
-      "Console Error": {
-        "prefix": "rconsoleerr",
-        "body": [
-          "rconsoleerr(${1:message})"
-        ],
-        "description": "Prints message into the console, with a error text before it."
-      },
-      "Console Clear": {
-        "prefix": "rconsoleclear",
-        "body": [
-          "rconsoleclear()"
-        ],
-        "description": "Clears the console."
-      },
-      "Console Name": {
-        "prefix": "rconsolename",
-        "body": [
-          "rconsolename(${1:title})"
-        ],
-        "description": "Sets the currently allocated console title to title."
-      },
-      "Console Input": {
-        "prefix": "rconsoleinput",
-        "body": [
-          "rconsoleinput()"
-        ],
-        "description": "Yields until the user inputs information into their console. Returns the input they put in."
-      },
-      "Print Console": {
-        "prefix": "printconsole",
-        "body": [
-          "printconsole(${1:message}, ${2:red}, ${3:green}, ${4:blue})"
-        ],
-        "description": "Prints message into the internal and integrated console with RGB value. To view the internal console, enable Internal UI in the Options menu and when in-game press INSERT on your keyboard. The integrated console can be found in the new synapse UI."
-      },
-
-      //8: Filesystem functions
-      "Read File": {
-        "prefix": "readfile",
-        "body": [
-          "readfile(${1:path})"
-        ],
-        "description": "Reads the contents of the file located at path and returns it. If the file does not exist, it errors."
-      },
-      "Write File": {
-        "prefix": "writefile",
-        "body": [
-          "writefile(${1:path}, ${2:content})"
-        ],
-        "description": "Writes contents to the supplied path. Extensions that are not allowed: .exe, .scr, .bat, .com, .csh, .msi, .vb, .vbs, .vbe, .ws, .wsf, .wsh, .ps1, .psy. Attempting to call this function with those extensions will error."
-      },
-      "Append File": {
-        "prefix": "appendfile",
-        "body": [
-          "appendfile(${1:path}, ${2:content})"
-        ],
-        "description": "Appends content to the file contents at path. If the file does not exist, it errors."
-      },
-      "Load File": {
-        "prefix": "loadfile",
-        "body": [
-          "loadfile(${1:path})"
-        ],
-        "description": "Loads in the contents of a file as a chunk and returns it if compilation is successful. Otherwise, if an error has occurred during compilation, nil followed by the error message will be returned."
-      },
-      "List Files": {
-        "prefix": "listfiles",
-        "body": [
-          "listfiles(${1:folder})"
-        ],
-        "description": "Returns a table of files in folder."
-      },
-      "Is File": {
-        "prefix": "isfile",
-        "body": [
-          "isfile(${1:path})"
-        ],
-        "description": "Returns if path is a file or not."
-      },
-      "Is Folder": {
-        "prefix": "isfolder",
-        "body": [
-          "isfolder(${1:path})"
-        ],
-        "description": "Returns if path is a folder or not."
-      },
-      "Make Folder": {
-        "prefix": "makefolder",
-        "body": [
-          "makefolder(${1:path})"
-        ],
-        "description": "Creates a new folder at path."
-      },
-      "Delete Folder": {
-        "prefix": "delfolder",
-        "body": [
-          "delfolder(${1:path})"
-        ],
-        "description": "Deletes the folder in the supplied path, if no folder exists, it errors."
-      },
-      "Delete File": {
-        "prefix": "delfile",
-        "body": [
-          "delfile(${1:path})"
-        ],
-        "description": "Deletes the file in the supplied path, if no file exists, it errors."
-      },
-
-      //9: Miscellaneous functions
-      "Set Clipboard": {
-        "prefix": "setclipboard",
-        "body": [
-          "setclipboard(${1:value})"
-        ],
-        "description": "Sets value to the clipboard."
-      },
-      "Set Fast Flag": {
-        "prefix": "setfflag",
-        "body": [
-          "setfflag(${1:FFlag}, ${2:Value})"
-        ],
-        "description": "Sets FFlag with Value. Must be run before the game loads, auto execute + auto launch recommended."
-      },
-      "Get Namecall Method": {
-        "prefix": "getnamecallmethod",
-        "body": [
-          "getnamecallmethod()"
-        ],
-        "description": "Returns the namecall method if the function is called in an __namecall metatable hook."
-      },
-      "Set Namecall Method": {
-        "prefix": "setnamecallmethod",
-        "body": [
-          "setnamecallmethod(${1:method})"
-        ],
-        "description": "Sets the current namecall method to the new namecall method. Must be called in a __namecall metatable hook."
-      },
-      "Get Synapse Asset": {
-        "prefix": "getsynasset",
-        "body": [
-          "getsynasset(${1:path})"
-        ],
-        "description": "Returns a Content string that can be used as a fake Asset ID for GUI elements. Please note this will only affect your client. Note: Certain instances only work with specific file types. For example, VideoFrame's only work with .webm encoded videos."
-      },
-      "Get Special Info": {
-        "prefix": "getspecialinfo",
-        "body": [
-          "getspecialinfo(${1:obj})"
-        ],
-        "description": "Gets a list of special properties for MeshParts, UnionOperations, and Terrain instances. More info: https://x.synapse.to/docs/reference/misc.html#get-special-info"
-      },
-      "Save Instance": {
+    // 5 - Instance Saving
+    "Save Instance": {
         "prefix": "saveinstance",
         "body": [
-          "saveinstance(${1:t})"
+            "saveinstance(${1:Object?})"
         ],
-        "description": "Saves the current game into your workspace folder. You can use table t to customize options for this. More info: https://x.synapse.to/docs/reference/misc.html#save-instance"
-      },
-      "Message Box": {
+        "description": "Saves the current game into your workspace folder. If an object is specified, it will save that object and its descendants as a model."
+    },
+    "Decompile": {
+        "prefix": "decompile",
+        "body": [
+            "decompile(${1:Script})"
+        ],
+        "description": "Decompiles Script and returns the output."
+    },
+
+    // 6 - Console
+    "Console Print": {
+        "prefix": "rconsoleprint",
+        "body": [
+            "rconsoleprint(${1:Message})"
+        ],
+        "description": "Prints Text into the console."
+    },
+    "Console Info": {
+        "prefix": "rconsoleinfo",
+        "body": [
+            "rconsoleinfo(${1:Message})"
+        ],
+        "description": "Prints Text into the console, with [INFO] written before it."
+    },
+    "Console Warn": {
+        "prefix": "rconsolewarn",
+        "body": [
+            "rconsolewarn(${1:Message})"
+        ],
+        "description": "Prints Text into the console, with [WARNING] written before it."
+    },
+    "Console Error": {
+        "prefix": "rconsoleerr",
+        "body": [
+            "rconsoleerr(${1:Message})"
+        ],
+        "description": "Prints Text into the console, with [ERROR] written before it."
+    },
+    "Console Clear": {
+        "prefix": "rconsoleclear",
+        "body": [
+            "rconsoleclear()"
+        ],
+        "description": "Clears all text from the console."
+    },
+    "Console Name": {
+        "prefix": "rconsolename",
+        "body": [
+            "rconsolename(${1:Title})"
+        ],
+        "description": "Sets the console's title to Title."
+    },
+    "Console Input": {
+        "prefix": "rconsoleinput",
+        "body": [
+            "rconsoleinput()"
+        ],
+        "description": "Yields until the user inputs information and presses Enter. Returns the input they put in."
+    },
+    "Close Console": {
+        "prefix": "rconsoleclose",
+        "body": [
+            "rconsoleclose()"
+        ],
+        "description": "Closes the console."
+    },
+
+    // 7 - Filesystem
+    "Write File": {
+        "prefix": "writefile",
+        "body": [
+            "writefile(${1:Path}, ${2:Content})"
+        ],
+        "description": "Writes Content to the supplied Path."
+    },
+    "Read File": {
+        "prefix": "readfile",
+        "body": [
+            "readfile(${1:Path})"
+        ],
+        "description": "Returns the contents of the file located at Path."
+    },
+    "Append File": {
+        "prefix": "appendfile",
+        "body": [
+            "appendfile(${1:Path}, ${2:Content})"
+        ],
+        "description": "Appends Content to the file contents at Path."
+    },
+    "Load File": {
+        "prefix": "loadfile",
+        "body": [
+            "loadfile(${1:Path})()"
+        ],
+        "description": "Loads the contents of the file located at Path as a chunk and returns it."
+    },
+    "Do File": {
+        "prefix": "dofile",
+        "body": [
+            "dofile(${1:Path})"
+        ],
+        "description": "Loads the contents of the file located at Path as a chunk and returns it."
+    },
+    "List Files": {
+        "prefix": "listfiles",
+        "body": [
+            "listfiles(${1:Folder})"
+        ],
+        "description": "Returns a table of all files in Folder."
+    },
+    "Is File": {
+        "prefix": "isfile",
+        "body": [
+            "isfile(${1:Path})"
+        ],
+        "description": "Returns true if Path is a file or not."
+    },
+    "Is Folder": {
+        "prefix": "isfolder",
+        "body": [
+            "isfolder(${1:Path})"
+        ],
+        "description": "Returns true if Path is a folder or not."
+    },
+    "Make Folder": {
+        "prefix": "makefolder",
+        "body": [
+            "makefolder(${1:Path})"
+        ],
+        "description": "Creates a new folder at Path."
+    },
+    "Zip Inflate": {
+        "prefix": "zip_inflate",
+        "body": [
+            "zip_inflate()"
+        ],
+        "description": "Returns a table of all files in the specified zip folder."
+    },
+    "Delete File": {
+        "prefix": "delfile",
+        "body": [
+            "delfile(${1:Path})"
+        ],
+        "description": "Deletes the file located at Path."
+    },
+    "Delete Folder": {
+        "prefix": "delfolder",
+        "body": [
+            "delfolder(${1:Path})"
+        ],
+        "description": "Deletes the folder located at Path."
+    },
+
+    // 8 - Miscellaneous
+    "Set Clipboard": {
+        "prefix": "setclipboard",
+        "body": [
+            "setclipboard(${1:Content})"
+        ],
+        "description": "Sets Content to the clipboard."
+    },
+    "Set Fast Flag": {
+        "prefix": "setfflag",
+        "body": [
+            "setffag(${1:Flag}, ${2:Value})"
+        ],
+        "description": "Sets Flag's value to Value."
+    },
+    "Get Custom Asset": {
+        "prefix": "getcustomasset",
+        "body": [
+            "getcustomasset(${1:Path})"
+        ],
+        "description": "Returns a string that can be used as a fake Asset ID for Gui elements."
+    },
+    "Get Special Info": {
+        "prefix": "getspecialinfo",
+        "body": [
+            "getspecialinfo(${1:Object})"
+        ],
+        "description": "Returns a table of special properties for MeshParts, UnionOperations, and Terrain instances."
+    },
+    "Message Box": {
         "prefix": "messagebox",
         "body": [
-          "messagebox(${1:text}, ${2:caption}, ${3:flags})"
+            "messagebox(${1:Text}, ${2:Title}, ${3:Flag})"
         ],
-        "description": "Creates a message box with parameters text, caption and style. More info: https://x.synapse.to/docs/reference/misc.html#message-box"
-      },
+        "description": "Creates a message box."
+    },
+    "Get Objects": {
+        "prefix": "game:GetObjects",
+        "body": [
+            "game:GetObjects(${1:AssetId})"
+        ],
+        "description": "Returns a table of all objects for the specified AssetId."
+    },
+    "Queue On Teleport": {
+        "prefix": "queue_on_teleport",
+        "body": [
+            "queue_on_teleport(${1:Code})"
+        ],
+        "description": "Executes Code after the local player is teleported."
+    },
+    "Request": {
+        "prefix": "request",
+        "body": [
+            "request(${1:Options})"
+        ],
+        "description": "Creates an HTTP request with Options."
+    },
+    "Set Parent Internal": {
+        "prefix": "setparentinternal",
+        "body": [
+            "setparentinternal(${1:Object}, ${2:Parent})"
+        ],
+        "description": "Internally sets the parent of Object to Parent without firing any signals."
+    },
+    "Add Child Internal": {
+        "prefix": "addchildinternal",
+        "body": [
+            "addchildinternal(${1:Parent}, ${2:Object})"
+        ],
+        "description": "Internally adds Object to Parent without firing any signals."
+    },
+    "Identify Executor": {
+        "prefix": "identifyexecutor",
+        "body": [
+            "identifyexecutor()"
+        ],
+        "description": "Returns Krnl."
+    },
+    "Krnl Loaded": {
+        "prefix": "KRNL_LOADED",
+        "body": [
+            "KRNL_LOADED"
+        ],
+        "description": "A variable that determines if the current executor is Krnl."
+    },
+    "Get Hidden UI": {
+        "prefix": ["gethui", "hiddenUI"],
+        "body": [
+            "gethui()"
+        ],
+        "description": "Returns a holder made for GUI's to be parented to."
+    },
+    "Is Luau": {
+        "prefix": "isluau",
+        "body": [
+            "isluau()"
+        ],
+        "description": "Returns true if the current game is using Luau."
+    },
+    "Set FPS Cap": {
+        "prefix": "setfpscap",
+        "body": [
+            "setfpscap(${1:Cap})"
+        ],
+        "description": "Sets the fps cap to Cap."
+    },
+    "Run Secure": {
+        "prefix": "run_secure",
+        "body": [
+            "run_secure(${1:Encrypted})"
+        ],
+        "description": "Loads Encrypted as a chunk."
+    },
+    "Get Network Mode": {
+        "prefix": "getnetworkmode",
+        "body": [
+            "getnetworkmode()"
+        ],
+        "description": "Returns the current network mode."
+    },
+    "Set Network Mode": {
+        "prefix": "setnetworkmode",
+        "body": [
+            "setnetworkmode(${1:Mode})"
+        ],
+        "description": "Sets the current network mode to Mode."
+    },
+    "Luau Compile": {
+        "prefix": "luau_compile",
+        "body": [
+            "luau_compile(${1:String})"
+        ],
+        "description": "Returns a Luau compiled version of String."
+    },
+    "Luau Load": {
+        "prefix": "luau_load",
+        "body": [
+            "luau_load()"
+        ],
+        "description": "Loads a Luau compiled string as a chunk."
+    },
 
-      //10: Libraries
-      //10.1: Bit library
-      "bdiv": {
-        "prefix": "bit.bdiv",
+    // 9 - Other
+    "Krnl Safe Call": {
+        "prefix": "KRNL_SAFE_CALL",
         "body": [
-          "bit.bdiv(${1:dividend}, ${2:divisor})"
+            "KRNL_SAFE_CALL(${1:Function}, ${2:Args...})"
         ],
-        "description": "Divides dividend by divisor, remainder is not returned."
-      },
-      "badd": {
-        "prefix": "bit.badd",
+        "description": "Calls function Function with Args in a LocalScript environment."
+    },
+    "Handle Teleport": {
+        "prefix": "HANDLE_TELEPORT",
         "body": [
-          "bit.badd(${1:a}, ${2:b})"
+            "HANDLE_TELEPORT()"
         ],
-        "description": "Adds a with b, allows overflows."
-      },
-      "bsub": {
-        "prefix": "bit.bsub",
+        "description": "Handles a teleport."
+    },
+    "Unlock Module": {
+        "prefix": "unlockModule",
         "body": [
-          "bit.bsub(${1:a}, ${2:b})"
+            "unlockModule(${1:Module})"
         ],
-        "description": "Subtracts a with b, allows overflows. "
-      },
-      "bmul": {
-        "prefix": "bit.bmul",
+        "description": "Unlocks Module."
+    },
+    "Lock Module": {
+        "prefix": "lockModule",
         "body": [
-          "bit.bmul(${1:val}, ${2:by})"
+            "lockModule()"
         ],
-        "description": "Multiplies val using by, allows overflows. Note: All bitwise functions within the bit lib return signed 32 bit integers. Take good note of that when implementing. If you want unsigned results, we suggest using bit32."
-      },
-      "band": {
-        "prefix": "bit.band",
+        "description": "Locks Module."
+    },
+    "Run Auto Execute Scripts": {
+        "prefix": "run_auto_execute_scripts",
         "body": [
-          "bit.band(${1:val}, ${2:by})"
+            "run_auto_execute_scripts()"
         ],
-        "description": "Does a bitwise AND (&) on val using by."
-      },
-      "bor": {
-        "prefix": "bit.bor",
+        "description": "Executes all scripts in your autoexec directory."
+    },
+    "Run Queue On Teleport Scripts": {
+        "prefix": "run_teleport_queue_scripts",
         "body": [
-          "bit.bor(${1:val}, ${2:by})"
+            "run_teleport_queue_scripts()"
         ],
-        "description": "Does a bitwise OR (|) on val using by."
-      },
-      "bxor": {
-        "prefix": "bit.bxor",
+        "description": "Executes all scripts that have been created with queue_on_teleport. This will remove all scripts that have been created with queue_on_teleport."
+    },
+    "Assign Socket": {
+        "prefix": "assign_socket",
         "body": [
-          "bit.bxor(${1:val}, ${2:by})"
+            "assign_socket(${1:Socket}, ${2:Url})"
         ],
-        "description": "Does a bitwise XOR (⊕) on val using by."
-      },
-      "bnot": {
-        "prefix": "bit.bnot",
+        "description": "Assigns Socket's connection to Url."
+    },
+    "Send Socket": {
+        "prefix": "send_socket",
         "body": [
-          "bit.bnot(${1:val})"
+            "send_socket(${1:Socket}, ${2:Message})"
         ],
-        "description": "Does a bitwise NOT on val."
-      },
-      "bswap": {
-        "prefix": "bit.bswap",
+        "description": "Sends a message through Socket's connection."
+    },
+    "Close Socket": {
+        "prefix": "close_socket",
         "body": [
-          "bit.bswap(${1:val})"
+            "close_socket(${1:Socket})"
         ],
-        "description": "Does a bitwise swap on val."
-      },
-      "ror": {
-        "prefix": "bit.ror",
-        "body": [
-          "bit.ror(${1:value}, ${2:rotate_count})"
-        ],
-        "description": "Returns the value rotated right by rotate_count."
-      },
-      "rol": {
-        "prefix": "bit.rol",
-        "body": [
-          "bit.rol(${1:value}, ${2:rotate_count})"
-        ],
-        "description": "Returns the value rotated left by rotate_count."
-      },
-      "tohex": {
-        "prefix": "bit.tohex",
-        "body": [
-          "bit.tohex(${1:val})"
-        ],
-        "description": "Converts val to a hex string."
-      },
-      "tobit": {
-        "prefix": "bit.tobit",
-        "body": [
-          "bit.tobit(${1:val})"
-        ],
-        "description": "Converts val into proper form for bitwise operations."
-      },
-      "lshift": {
-        "prefix": "bit.lshift",
-        "body": [
-          "bit.lshift(${1:val}, ${2:by})"
-        ],
-        "description": "Does a left shift on val using by."
-      },
-      "rshift": {
-        "prefix": "bit.rshift",
-        "body": [
-          "bit.rshift(${1:val}, ${2:by})"
-        ],
-        "description": "Does a right shift on val using by."
-      },
-      "arshift": {
-        "prefix": "bit.arshift",
-        "body": [
-          "bit.arshift(${1:value}, ${2:shift_count})"
-        ],
-        "description": "Returns the arithmetically shifted value."
-      },
+        "description": "Closes Socket's connection."
+    },
 
-      //10.2: Crypt library
-      "Encrypt": {
-        "prefix": "syn.crypt.encrypt",
+    // 10 - Bit Library
+    "And": {
+        "prefix": ["band", "bit.band"],
         "body": [
-          "syn.crypt.encrypt(${1:data}, ${2:key})"
+            "bit.band(${1:x}, ${2:disp})"
         ],
-        "description": "Encrypts data with key (algorithm used is AES-GCM, random nonce generated per call)."
-      },
-      "Decrypt": {
-        "prefix": "syn.crypt.decrypt",
+        "description": "Returns the bitwise and of its operands."
+    },
+    "Or": {
+        "prefix": ["bor", "bit.bor"],
         "body": [
-          "syn.crypt.decrypt(${1:data}, ${2:key})"
+            "bit.bor(${1:x}, ${2:disp})"
         ],
-        "description": "Decrypts data with key."
-      },
-      "Base64 Encode": {
-        "prefix": "syn.crypt.base64.encode",
+        "description": "Returns the bitwise or of its operands."
+    },
+    "Exclusive Or": {
+        "prefix": ["bxor", "bit.bxor"],
         "body": [
-          "syn.crypt.base64.encode(${1:data})"
+            "bit.bxor(${1:x}, ${2:disp})"
         ],
-        "description": "Encodes data with base64."
-      },
-      "Base64 Decode": {
-        "prefix": "syn.crypt.base64.decode",
+        "description": "Returns the bitwise exclusive or of its operands."
+    },
+    "Not": {
+        "prefix": ["bnot", "bit.bnot"],
         "body": [
-          "syn.crypt.base64.decode(${1:data})"
+            "bit.bnot(${1:x})"
         ],
-        "description": "Decodes data with base64."
-      },
-      "Hash": {
-        "prefix": "syn.crypt.hash",
+        "description": "Returns the bitwise negation of x."
+    },
+    "Left Shift": {
+        "prefix": ["lshift", "bit.lshift"],
         "body": [
-          "syn.crypt.hash(${1:data})"
+            "bit.lshift(${1:x}, ${2:disp})"
         ],
-        "description": "Hashes data with SHA-384."
-      },
-      "Derive": {
-        "prefix": "syn.crypt.derive",
+        "description": "Returns the number x shifted disp bits to the left."
+    },
+    "Right Shift": {
+        "prefix": ["rshift", "bit.rshift"],
         "body": [
-          "syn.crypt.derive(${1:value}, ${2:len})"
+            "bit.rshift(${1:x}, ${2:disp})"
         ],
-        "description": "Derives a secret key from value with the length of len."
-      },
-      "Random": {
-        "prefix": "syn.crypt.random",
+        "description": "Returns the number x shifted disp bits to the right."
+    },
+    "Arithmetic Shift": {
+        "prefix": ["arshift", "bit.arshift"],
         "body": [
-          "syn.crypt.random(${1:size})"
+            "bit.arshift(${1:x}, ${2:disp})"
         ],
-        "description": "Generates a random string with size (cannot be negative or exceed 1024)."
-      },
-      "Custom Encrypt": {
-        "prefix": "syn.crypt.custom.encrypt",
+        "description": "Returns the number x shifted disp bits to the right. The number disp may be any representable integer. Negative displacements shift to the left."
+    },
+    "Left Rotate": {
+        "prefix": ["lrotate", "bit.lrotate"],
         "body": [
-          "syn.crypt.custom.encrypt(${1:cipher}, ${2:data}, ${3:key}, ${4:iv/nonce})"
+            "bit.lrotate(${1:x}, ${2:disp})"
         ],
-        "description": "Encrypts data with key using selected cipher and iv/nonce. Ciphers: https://x.synapse.to/docs/reference/crypt_lib.html#encryptiondecryption-ciphers"
-      },
-      "Custom Decrypt": {
-        "prefix": "syn.crypt.custom.decrypt",
+        "description": "Returns the number x rotated disp bits to the left."
+    },
+    "Right Rotate": {
+        "prefix": ["rrotate", "bit.rrotate"],
         "body": [
-          "syn.crypt.custom.decrypt(${1:cipher}, ${2:data}, ${3:key}, ${4:iv/nonce})"
+            "bit.rrotate(${1:x}, ${2:disp})"
         ],
-        "description": "Decrypts data with key using selected cypher and iv/nonce. Ciphers: https://x.synapse.to/docs/reference/crypt_lib.html#encryptiondecryption-ciphers"
-      },
-      "Custom hash": {
-        "prefix": "syn.crypt.custom.hash",
+        "description": "Returns the number x rotated disp bits to the right."
+    },
+    "Extract": {
+        "prefix": ["extract", "bit.extract"],
         "body": [
-          "syn.crypt.custom.hash(${1:algorithm}, ${2:data})"
+            "bit.extract(${1:x}, ${2:field}, ${3:width})"
         ],
-        "description": "Hashes data with algorithm. Hashing algos: https://x.synapse.to/docs/reference/crypt_lib.html#hashing-algorithms"
-      },
+        "description": "Returns the unsigned number formed by the bits field to field + width - 1 from x."
+    },
+    "Replace": {
+        "prefix": ["replace", "bit.replace"],
+        "body": [
+            "bit.replace(${1:x}, ${2:field}, ${3:width})"
+        ],
+        "description": "Returns a copy of x with the bits field to field + width - 1 replaced by the value v."
+    },
+    "Test": {
+        "prefix": ["btest", "bit.btest"],
+        "body": [
+            "bit.btest(${1:x})"
+        ],
+        "description": "Returns a boolean signalling whether the bitwise and of its operands is different from zero."
+    },
+    "Count Left": {
+        "prefix": ["countlz", "bit.countlz"],
+        "body": [
+            "bit.countlz(${1:x})"
+        ],
+        "description": "Returns the number of consecutive zero bits in the 32-bit representation of x starting from left-most (most significant) bit. Returns 32 if x is zero."
+    },
+    "Count Right": {
+        "prefix": ["countrz", "bit.countrz"],
+        "body": [
+            "bit.countrz(${1:x})"
+        ],
+        "description": "Returns the number of consecutive zero bits in the 32-bit representation of x starting from the right-most (least significatn) bit. Returns 32 if x is zero."
+    },
 
+    // 11 - Crypt Library
+    "Hash": {
+        "prefix": ["sha384_hash", "Krnl.crypt.hash"],
+        "body": [
+            "Krnl.crypt.hash(${1:Data})"
+        ],
+        "description": "Hashes Data with SHA-384."
+    },
+    "Base64 Encode": {
+        "prefix": ["base64_encode", "Krnl.Base64.Encode"],
+        "body": [
+            "Krnl.Base64.Encode(${1:Data})"
+        ],
+        "description": "Encodes Data with Base64."
+    },
+    "Base64 Decode": {
+        "prefix": ["base64_decode", "Krnl.Base64.Decode"],
+        "body": [
+            "Krnl.Base64.Decode(${1:Data})"
+        ],
+        "description": "Decodes Data with Base64."
+    },
 
-      //10.3: Debug library
-      "Get Constants": {
-        "prefix": "debug.getconstants",
+    // 12 - Debug Library
+    "Get Constant": {
+        "prefix": ["getconstant", "debug.getconstant"],
         "body": [
-          "debug.getconstants(${1:fi})"
+            "debug.getconstant(${1:f}, ${2:idx})"
         ],
-        "description": "Retrieve the constants in function fi or at level fi."
-      },
-      "Get Constant": {
-        "prefix": "debug.getconstant",
+        "description": "Returns the constant at index idx in function f or level f."
+    },
+    "Get Constants": {
+        "prefix": ["getconstants", "debug.getconstants"],
         "body": [
-          "debug.getconstant(${1:fi}, ${2:idx})"
+            "debug.getconstants(${1:f})"
         ],
-        "description": "Returns the constant at index idx in function fi or level fi."
-      },
-      "Set Constant": {
-        "prefix": "debug.setconstant",
+        "description": "Returns the constants in function f or at level f."
+    },
+    "Set Constant": {
+        "prefix": ["setconstant", "debug.setconstant"],
         "body": [
-          "debug.setconstant(${1:fi}, ${2:idx}, ${3:value})"
+            "debug.setconstant(${1:f}, ${2:idx}, ${3:value})"
         ],
-        "description": "Set constant idx to tuple value at level or function fi."
-      },
-      "Get Upvalues": {
-        "prefix": "debug.getupvalues",
+        "description": "Sets constant idx to tuple value at level or function f."
+    },
+    "Get Upvalue": {
+        "prefix": ["getupvalue", "debug.getupvalue"],
         "body": [
-          "debug.getupvalues(${1:fi})"
+            "debug.getupvalue(${1:f}, ${2:idx})"
         ],
-        "description": "Retrieve the upvalues in function fi or at level fi."
-      },
-      "Get Upvalue": {
-        "prefix": "debug.getupvalue",
+        "description": "Returns the upvalue with name idx in function or level f."
+    },
+    "Get Upvalues": {
+        "prefix": ["getupvalues", "debug.getupvalues"],
         "body": [
-          "debug.getupvalue(${1:fi}, ${2:idx})"
+            "debug.getupvalues(${1:f})"
         ],
-        "description": "Returns the upvalue with name idx in function or level fi."
-      },
-      "Set Upvalue": {
-        "prefix": "debug.setupvalue",
+        "description": "Retrieves the upvalues in function f or at level f."
+    },
+    "Set Upvalue": {
+        "prefix": ["setupvalue", "debug.setupvalue"],
         "body": [
-          "debug.setupvalue(${1:fi}, ${2:idx}, ${3:value})"
+            "debug.setupvalue(${1:f}, ${2:idx}, ${3:value})"
         ],
-        "description": "Set upvalue idx to value value at level or function fi."
-      },
-      "Get Protos": {
-        "prefix": "debug.getprotos",
+        "description": "Sets upvalue idx to value at level or function f."
+    },
+    "Get Proto": {
+        "prefix": ["getproto", "debug.getproto"],
         "body": [
-          "debug.getprotos(${1:f})"
+            "debug.getproto(${1:f}, ${2:idx}, ${3:activated?})"
         ],
-        "description": "Returns a table containing the inner functions of function f. Note these functions will not have upvalues, use debug.getproto with activated true to get a list of instances."
-      },
-      "Get Proto": {
-        "prefix": "debug.getproto",
+        "description": "Gets the inner function of f at index."
+    },
+    "Get Protos": {
+        "prefix": ["getprotos", "debug.getprotos"],
         "body": [
-          "debug.getproto(${1:f}, ${2:index})"
+            "debug.getprotos(${1:f})"
         ],
-        "description": "Gets the inner function of f at index. Note if activated is true, instead it will return a table of functions. These are the instances of that function that exist within the GC."
-      },
-      "Set Proto": {
-        "prefix": "debug.setproto",
+        "description": "Returns a table containing the inner function f."
+    },
+    "Get Stack": {
+        "prefix": ["getstack", "debug.getstack"],
         "body": [
-          "debug.setproto(${1:fi}, ${2:index}, ${3:replacement})"
+            "debug.getstack(${1:f}, ${2:idx})"
         ],
-        "description": "Replaces fi at index with function replacement at level or function fi."
-      },
-      "Get Stack": {
-        "prefix": "debug.getstack",
+        "description": "Gets the method stack at level or function f."
+    },
+    "Set Stack": {
+        "prefix": ["setstack", "debug.setstack"],
         "body": [
-          "debug.getstack(${1:indice})"
+            "debug.setstack(${1:f}, ${2:idx}, ${3:value})"
         ],
-        "description": "Gets the method stack at level indice."
-      },
-      "Set Stack": {
-        "prefix": "debug.setstack",
+        "description": "Sets the stack indice at idx to value at level or function f."
+    },
+    "Get Info": {
+        "prefix": ["getinfo", "debug.getinfo"],
         "body": [
-          "debug.setstack(${1:indice}, ${2:indice}, ${3:value})"
+            "debug.getinfo(${1:f})"
         ],
-        "description": "Set the stack indice at level indice to value value at level or function fi."
-      },
-      "Set Metatable": {
-        "prefix": "debug.setmetatable",
+        "description": "Returns a table of information about function f."
+    },
+    "Info": {
+        "prefix": ["info", "debug.info"],
         "body": [
-          "debug.setmetatable(${1:o}, ${2:mt})"
+            "debug.example(${1:f}, ${2:idx})"
         ],
-        "description": "Set the metatable of o to mt."
-      },
-      "Debug Get Registry": {
-        "prefix": "debug.getregistry",
+        "description": "Allows programmatic inspection of the call stack."
+    },
+    "Traceback": {
+        "prefix": ["traceback", "debug.traceback"],
         "body": [
-          "debug.getregistry()"
+            "debug.traceback(${1:message}, ${2:level})"
         ],
-        "description": "Returns the Lua registry."
-      },
-      "Get Info": {
-        "prefix": "debug.getinfo",
+        "description": "Returns a traceback of the current function call stack as a string."
+    },
+    "Profile Begin": {
+        "prefix": ["profilebegin", "debug.profilebegin"],
         "body": [
-          "debug.getinfo(${1:fi})"
+            "debug.profilebegin(${1:Label})"
         ],
-        "description": "Returns a table of info pertaining to the lua function fi."
-      },
+        "description": "Opens a microprofiler label."
+    },
+    "Profile End": {
+        "prefix": ["profileend", "debug.profileend"],
+        "body": [
+            "debug.profileend()"
+        ],
+        "description": "Closes the top microprofiler label."
+    },
 
-      //10.4: Drawing library
-      "Drawing New": {
+    // 13 - Drawing Library
+    "New Drawing": {
         "prefix": "Drawing.new",
         "body": [
-          "Drawing.new(${1:type})"
+            "Drawing.new(${1:Class})"
         ],
-        "description": "Creates a new drawing object with type. Returns the object. Docs: https://x.synapse.to/docs/reference/drawing_lib.html#drawing-library"
-      },
-      "UI font": {
-        "prefix": "Drawing.Fonts[\"UI\"]",
+        "description": "Returns a new Drawing object with Class."
+    },
+    "Clear Drawings": {
+        "prefix": ["Drawing.clear, Drawing.Clear"],
         "body": [
-          "Drawing.Fonts[\"UI\"]"
+            "Drawing.clear()"
         ],
-        "description": "UI font"
-      },
-      "System font": {
-        "prefix": "Drawing.Fonts[\"System\"]",
+        "description": "Removes all Drawing objects."
+    },
+    "Fonts": {
+        "prefix": "Drawing.Fonts",
         "body": [
-          "Drawing.Fonts[\"System\"]"
+            "Drawing.Fonts"
         ],
-        "description": "System font"
-      },
-      "Plex font": {
-        "prefix": "Drawing.Fonts[\"Plex\"]",
-        "body": [
-          "Drawing.Fonts[\"Plex\"]"
-        ],
-        "description": "Plex font"
-      },
-      "Monospace font": {
-        "prefix": "Drawing.Fonts[\"Monospace\"]",
-        "body": [
-          "Drawing.Fonts[\"Monospace\"]"
-        ],
-        "description": "Monospace font"
-      },
-      "Font": {
-        "prefix": "Drawing.Font",
-        "body": [
-          "Drawing.Font"
-        ],
-        "description": "The font class"
-      },
+        "description": "A table of all Drawing Fonts."
+    },
 
-      //10.5: Syn library
-      "Cache Replace": {
-        "prefix": "syn.cache_replace",
+    // 14 - Krnl Library
+    "Require": {
+        "prefix": ["Require", "Krnl:Require"],
         "body": [
-          "syn.cache_replace(${1:obj}, ${2:t_obj})"
+            "Krnl:Require(${1:Module})"
         ],
-        "description": "Replace obj in the instance cache with t_obj."
-      },
-      "Cache Invalidate": {
-        "prefix": "syn.cache_invalidate",
+        "description": "Returns a module."
+    },
+    "Load Async": {
+        "prefix": ["LoadAsync", "Krnl:LoadAsync"],
         "body": [
-          "syn.cache_invalidate(${1:obj})"
+            "Krnl:LoadAsync(${1:Url})"
         ],
-        "description": "Invalidate obj's cache entry, forcing a re-cache upon the next lookup."
-      },
-      "Set Thread Identity": {
-        "prefix": "syn.set_thread_identity",
+        "description": "Loads the contents of Url as a chunk. Equivalent to loadstring(game:HttpGet(Url)()"
+    },
+    "SaveInstance": {
+        "prefix": ["SaveInstance", "Krnl.SaveInstance"],
         "body": [
-          "syn.set_thread_identity(${1:n})"
+            "Krnl.SaveInstance"
         ],
-        "description": "Sets the current thread identity."
-      },
-      "Get Thread Identity": {
-        "prefix": "syn.get_thread_identity",
-        "body": [
-          "syn.get_thread_identity()"
-        ],
-        "description": "Returns the current thread identity."
-      },
-      "Is Cached": {
-        "prefix": "syn.is_cached",
-        "body": [
-          "syn.is_cached(${1:obj})"
-        ],
-        "description": "Returns true if obj is currently cached within the registry."
-      },
-      "Write Clipboard": {
-        "prefix": "syn.write_clipboard",
-        "body": [
-          "syn.write_clipboard(${1:content})"
-        ],
-        "description": "Writes content to the current Windows clipboard."
-      },
-      "Queue On Teleport": {
-        "prefix": "syn.queue_on_teleport",
-        "body": [
-          "syn.queue_on_teleport(${1:code})"
-        ],
-        "description": "Executes code after player is teleported. Example: https://x.synapse.to/docs/reference/syn_lib.html#example"
-      },
-      "Protect Gui": {
-        "prefix": "syn.protect_gui",
-        "body": [
-          "syn.protect_gui(${1:GUI})"
-        ],
-        "description": "Protects your GUI from recursive FindFirstChild-style attacks. After you call the function, recursive FFA calls from non-Synapse contexts will skip over your protected instances & all children of such instances. Example: https://x.synapse.to/docs/reference/syn_lib.html#example-1"
-      },
-      "Unprotect Gui": {
-        "prefix": "syn.unprotect_gui",
-        "body": [
-          "syn.unprotect_gui(${1:GUI})"
-        ],
-        "description": "Removes protection from the GUI. Errors if gui isn't already protected."
-      },
-      "Is Beta": {
-        "prefix": "syn.is_beta",
-        "body": [
-          "syn.is_beta()"
-        ],
-        "description": "Returns a bool indicating whether the user is using Synapse Beta or not."
-      },
-      "Request": {
-        "prefix": "syn.request",
-        "body": [
-          "syn.request(${1:options})"
-        ],
-        "description": "Sends a http request with parameters in options. More info and example: https://x.synapse.to/docs/reference/syn_lib.html#request"
-      },
-      "Secure Call": {
-        "prefix": "syn.secure_call",
-        "body": [
-          "syn.secure_call(${1:func}, ${1:script}, ${1:args...})"
-        ],
-        "description": "Spoofs caller environment and context when calling func with script's environment. You can pass as many arguments args as is required. secure_call returns whatever the called function returns. You can also pass a table to script if you wish to customize how the call will occur. More info and example: https://x.synapse.to/docs/reference/syn_lib.html#secure-call"
-      },
-      "Create Secure Function": {
-        "prefix": "syn.create_secure_function",
-        "body": [
-          "syn.create_secure_function(${1:code})"
-        ],
-        "description": "Protects your code with secure function, making it much more difficult for others to alter or view your code. This function can only be used by users who have been given access."
-      },
-      "Run Secure Function": {
-        "prefix": "syn.run_secure_function",
-        "body": [
-          "syn.run_secure_function(${1:code})"
-        ],
-        "description": "Runs code protected by secure function."
-      },
+        "description": "A table of settings and function related to Save Instance."
+    },
 
-      //10.6: Websocket library
-      "Websocket": {
-        "prefix": "syn.websocket.connect",
+    // 15 - Websocket Library
+    "Connect Websocket": {
+        "prefix": ["WebSocket.connect", "Krnl.WebSocket.connect"],
         "body": [
-          "syn.websocket.connect(${1:url})"
+            "WebSocket.connect(${1:Url})"
         ],
-        "description": "Connects to the url specified. Errors if the connection fails. Information on using it: https://x.synapse.to/docs/reference/websocket_lib.html#websocket-library"
-      },
+        "description": "Attempts to connect to Url."
+    },
 }
