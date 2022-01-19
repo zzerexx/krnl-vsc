@@ -17,9 +17,9 @@
     "Get Script Environment": {
         "prefix": "getsenv",
         "body": [
-            "getsenv(${1:Script})"
+            "getsenv($0)"
         ],
-        "description": "description"
+        "description": "Returns Script's environment."
     },
     "Get Lua Registry": {
         "prefix": ["getreg", "getregistry", "debug.getregistry"],
@@ -31,7 +31,7 @@
     "Get Garbage Collection": {
         "prefix": "getgc",
         "body": [
-            "getgc(${1:IncludeTables?})"
+            "getgc($0)"
         ],
         "description": "Returns all functions and userdata values within the Garbage Collection. Passing true will also return tables."
     },
@@ -73,126 +73,126 @@
     "Get Connections": {
         "prefix": "getconnections",
         "body": [
-            "getconnections(${1:Signal})"
+            "getconnections($0)"
         ],
         "description": "Returns a table of all connections to the specified Signal."
     },
     "Fire Signal": {
         "prefix": "firesignal",
         "body": [
-            "firesignal(${1:Signal}, ${2:Args...})"
+            "firesignal($0)"
         ],
         "description": "Fires all connections connected to Signal with Args."
     },
     "Fire Click Detector": {
         "prefix": "fireclickdetector",
         "body": [
-            "fireclickdetector(${1:ClickDetector}, ${2:Distance?}, ${3:Flag?})"
+            "fireclickdetector($0)"
         ],
         "description": "Fires the specified ClickDetector with provided Distance and Flag."
     },
     "Fire Touch Interest": {
         "prefix": "firetouchinterest",
         "body": [
-            "firetouchinterest(${1:Part}, ${2:OtherPart}, ${3:Touching})"
+            "firetouchinterest($0)"
         ],
         "description": "Fires a Touched event on OtherPart with Part."
     },
     "Fire Proximity Prompt": {
         "prefix": "fireproximityprompt",
         "body": [
-            "fireproximityprompt()"
+            "fireproximityprompt($0)"
         ],
         "description": "Fires a Triggered event on Prompt."
     },
     "Get Hidden Property": {
         "prefix": "gethiddenproperty",
         "body": [
-            "gethiddenproperty(${1:Object}, ${2:Property})"
+            "gethiddenproperty($0)"
         ],
         "description": "Returns Object's hidden Property."
     },
     "Set Hidden Property": {
         "prefix": "sethiddenproperty",
         "body": [
-            "sethiddenproperty(${1:Object}, ${2:Property}, ${3:Value})"
+            "sethiddenproperty($0)"
         ],
         "description": "Sets Object's hidden Property to Value."
     },
     "Get Properties": {
         "prefix": "getproperties",
         "body": [
-            "getproperties(${1:Object})"
+            "getproperties($0)"
         ],
         "description": "Returns all properties of Object."
     },
     "Set Simulation Radius": {
         "prefix": "setsimulationradius",
         "body": [
-            "setsimulationradius(${1:Radius}, ${2:MaxRadius?})"
+            "setsimulationradius($0)"
         ],
         "description": "Sets the local player's SimulationRadius to Radius with optional MaxRadius."
     },
     "Get Script Bytecode": {
         "prefix": "getscriptbytecode",
         "body": [
-            "getscriptbytecode(${1:Script})"
+            "getscriptbytecode($0)"
         ],
         "description": "Returns Script's bytecode."
     },
     "Get Script Hash": {
         "prefix": "getscripthash",
         "body": [
-            "getscripthash(${1:Script})"
+            "getscripthash($0)"
         ],
         "description": "Returns Script's hashed bytecode. (SHA_384)"
     },
     "Get Thread Context": {
-        "prefix": "getthreadcontext",
+        "prefix": ["getthreadcontext", "getthreadidentity"],
         "body": [
             "getthreadcontext()"
         ],
         "description": "Returns the current thread context."
     },
     "Set Thread Context": {
-        "prefix": "setthreadcontext",
+        "prefix": ["setthreadcontext", "setthreadidentity"],
         "body": [
-            "setthreadcontext(${1:Context})"
+            "setthreadcontext($0)"
         ],
         "description": "Sets the current thread's context to Context."
     },
     "Loadstring": {
         "prefix": "loadstring",
         "body": [
-            "loadstring(${1:Chunk}, ${2:ChunkName?})"
+            "loadstring($0)()"
         ],
         "description": "Loads Chunk as a Lua function with optional ChunkName and returns it."
     },
     "Set Scriptable": {
         "prefix": "setscriptable",
         "body": [
-            "setscriptable(${1:Object}, ${2:Property}, ${3:Scriptable})"
+            "setscriptable($0)"
         ],
         "description": "Sets Object's Property to be scriptable or not."
     },
     "Get Callback Value": {
         "prefix": ["getcallbackvalue", "getcallbackmember"],
         "body": [
-            "getcallbackvalue(${1:Object}, ${2:Signal})"
+            "getcallbackvalue($0)"
         ],
         "description": "Allows you to get the function back from callbacks. This value is traditionally write-only."
     },
     "Get Module Unlocked": {
         "prefix": "getmoduleunlocked",
         "body": [
-            "getmoduleunlocked(${1:Module})"
+            "getmoduleunlocked($0)"
         ],
         "description": "Returns true if Module is unlocked."
     },
     "Set Module Unlocked": {
         "prefix": "setmoduleunlocked",
         "body": [
-            "setmoduleunlocked(${1:Module}, ${2:Unlocked})"
+            "setmoduleunlocked($0)"
         ],
         "description": "Sets Module's unlocked state to Unlocked."
     },
@@ -201,37 +201,37 @@
     "Get Raw Metatable": {
         "prefix": ["getrawmetatable", "debug.getmetatable"],
         "body": [
-            "getrawmetatable(${1:Table})"
+            "getrawmetatable($0)"
         ],
         "description": "Returns Table's raw metatable, bypassing the __metatable field."
     },
     "Set Raw Metatable": {
         "prefix": ["setrawmetatable", "debug.setmetatable"],
         "body": [
-            "setrawmetatable(${1:Table}, ${2:New})"
+            "setrawmetatable($0)"
         ],
         "description": "Sets Table's metatable to New."
     },
     "Set Read Only": {
         "prefix": "setreadonly",
         "body": [
-            "setreadonly(${1:Table}, ${2:Value})"
+            "setreadonly($0)"
         ],
         "description": "Sets Table's read-only condition to Value."
     },
     "Is Read Only": {
         "prefix": "isreadonly",
         "body": [
-            "isreadonly(${1:Table})"
+            "isreadonly($0)"
         ],
         "description": "Returns Table's read-only condition."
     },
     "Hook Metamethod": {
         "prefix": "hookmetamethod",
         "body": [
-            "hookmetamethod(${1:Object}, ${2:Metamethod}, ${3:Function})"
+            "hookmetamethod(game, '$0', function(...)\n    \nend)"
         ],
-        "description": "description"
+        "description": "Hooks the Metamethod passed in Object's metatable with f. A function to call the original metamethod is returned, you must use this function in order to call the original metamethod."
     },
 
     // 3 - Input
@@ -245,14 +245,14 @@
     "Key Press": {
         "prefix": "keypress",
         "body": [
-            "keypress(${1:Keycode})"
+            "keypress(0x$0)"
         ],
         "description": "Simulates a key press for the specified Keycode."
     },
     "Key Release": {
         "prefix": "keyrelease",
         "body": [
-            "keyrelease(${1:Keycode})"
+            "keyrelease(0x$0)"
         ],
         "description": "Simulates a key release for the specified Keycode."
     },
@@ -271,7 +271,7 @@
         "description": "Simulates a left mouse button press."
     },
     "Left Mouse Release": {
-        "prefix": ["mouse1release", "mouse1down"],
+        "prefix": ["mouse1release", "mouse1up"],
         "body": [
             "mouse1release()"
         ],
@@ -292,7 +292,7 @@
         "description": "Simulates a right mouse button press."
     },
     "Right Mouse Release": {
-        "prefix": ["mouse2release", "mouse2down"],
+        "prefix": ["mouse2release", "mouse2up"],
         "body": [
             "mouse2release()"
         ],
@@ -301,21 +301,21 @@
     "Mouse Scroll": {
         "prefix": "mousescroll",
         "body": [
-            "mousescroll(${1:Pixels})"
+            "mousescroll($0)"
         ],
         "description": "Scrolls the mouse wheel virtuallu by Pixels."
     },
     "Mouse Move Relative": {
         "prefix": "mousemoverel",
         "body": [
-            "mousemoverel(${1:X}, ${2:Y})"
+            "mousemoverel($0)"
         ],
         "description": "Moves the mouse cursor relative to the current mouse position to coordinates X and Y."
     },
     "Mouse Move Absolute": {
         "prefix": "mousemoveabs",
         "body": [
-            "mousemoveabs(${1:X}, ${2:Y})"
+            "mousemoveabs($0)"
         ],
         "description": "Moves the mouse cursor to the X and Y coordinates in pixels from the top left of the main window."
     },
@@ -331,42 +331,42 @@
     "Get Script Closure": {
         "prefix": "getscriptclosure",
         "body": [
-            "getscriptclosure(${1:Script})"
+            "getscriptclosure($0)"
         ],
         "description": "Returns a new copy of Script's closure."
     },
     "New C Closure": {
         "prefix": "newcclosure",
         "body": [
-            "newcclosure(${1:Function})"
+            "newcclosure(function()\n    $0\nend)"
         ],
         "description": "Pushes a new C closure that invokes the function f upon call."
     },
     "Hook Function": {
         "prefix": ["hookfunction", "hookfunc"],
         "body": [
-            "hookfunction(${1:Old}, ${2:New})"
+            "hookfunction($0)"
         ],
         "description": "Hooks function Old, replacing it with the function New. The old function is returned, you must use this function is order to call the original function."
     },
     "Is C Closure": {
         "prefix": "iscclosure",
         "body": [
-            "iscclosure(${1:Function})"
+            "iscclosure($0)"
         ],
         "description": "Returns true if Function is a C closure."
     },
     "Is Lua Closure": {
         "prefix": "islclosure",
         "body": [
-            "islclosure(${1:Function})"
+            "islclosure($0)"
         ],
         "description": "Returns true if Function is a Lua closure."
     },
     "Is Krnl Closure": {
         "prefix": ["iskrnlclosure", "checkclosure"],
         "body": [
-            "iskrnlclosure(${1:Function})"
+            "iskrnlclosure($0)"
         ],
         "description": "Returns true if Function is a Krnl closure."
     },
@@ -382,14 +382,14 @@
     "Save Instance": {
         "prefix": "saveinstance",
         "body": [
-            "saveinstance(${1:Object?})"
+            "saveinstance($0)"
         ],
         "description": "Saves the current game into your workspace folder. If an object is specified, it will save that object and its descendants as a model."
     },
     "Decompile": {
         "prefix": "decompile",
         "body": [
-            "decompile(${1:Script})"
+            "decompile($0)"
         ],
         "description": "Decompiles Script and returns the output."
     },
@@ -398,28 +398,28 @@
     "Console Print": {
         "prefix": "rconsoleprint",
         "body": [
-            "rconsoleprint(${1:Message})"
+            "rconsoleprint('$0')"
         ],
         "description": "Prints Text into the console."
     },
     "Console Info": {
         "prefix": "rconsoleinfo",
         "body": [
-            "rconsoleinfo(${1:Message})"
+            "rconsoleinfo('$0')"
         ],
         "description": "Prints Text into the console, with [INFO] written before it."
     },
     "Console Warn": {
         "prefix": "rconsolewarn",
         "body": [
-            "rconsolewarn(${1:Message})"
+            "rconsolewarn('$0')"
         ],
         "description": "Prints Text into the console, with [WARNING] written before it."
     },
     "Console Error": {
         "prefix": "rconsoleerr",
         "body": [
-            "rconsoleerr(${1:Message})"
+            "rconsoleerr('$0')"
         ],
         "description": "Prints Text into the console, with [ERROR] written before it."
     },
@@ -433,7 +433,7 @@
     "Console Name": {
         "prefix": "rconsolename",
         "body": [
-            "rconsolename(${1:Title})"
+            "rconsolename('$0')"
         ],
         "description": "Sets the console's title to Title."
     },
@@ -456,84 +456,84 @@
     "Write File": {
         "prefix": "writefile",
         "body": [
-            "writefile(${1:Path}, ${2:Content})"
+            "writefile('$0')"
         ],
         "description": "Writes Content to the supplied Path."
     },
     "Read File": {
         "prefix": "readfile",
         "body": [
-            "readfile(${1:Path})"
+            "readfile('$0')"
         ],
         "description": "Returns the contents of the file located at Path."
     },
     "Append File": {
         "prefix": "appendfile",
         "body": [
-            "appendfile(${1:Path}, ${2:Content})"
+            "appendfile('$0')"
         ],
         "description": "Appends Content to the file contents at Path."
     },
     "Load File": {
         "prefix": "loadfile",
         "body": [
-            "loadfile(${1:Path})()"
+            "loadfile('$0')()"
         ],
         "description": "Loads the contents of the file located at Path as a chunk and returns it."
     },
     "Do File": {
         "prefix": "dofile",
         "body": [
-            "dofile(${1:Path})"
+            "dofile('$0')"
         ],
         "description": "Loads the contents of the file located at Path as a chunk and returns it."
     },
     "List Files": {
         "prefix": "listfiles",
         "body": [
-            "listfiles(${1:Folder})"
+            "listfiles('$0')"
         ],
         "description": "Returns a table of all files in Folder."
     },
     "Is File": {
         "prefix": "isfile",
         "body": [
-            "isfile(${1:Path})"
+            "isfile('$0')"
         ],
         "description": "Returns true if Path is a file or not."
     },
     "Is Folder": {
         "prefix": "isfolder",
         "body": [
-            "isfolder(${1:Path})"
+            "isfolder('$0')"
         ],
         "description": "Returns true if Path is a folder or not."
     },
     "Make Folder": {
         "prefix": "makefolder",
         "body": [
-            "makefolder(${1:Path})"
+            "makefolder('$0')"
         ],
         "description": "Creates a new folder at Path."
     },
     "Zip Inflate": {
         "prefix": "zip_inflate",
         "body": [
-            "zip_inflate()"
+            "zip_inflate('$0')"
         ],
         "description": "Returns a table of all files in the specified zip folder."
     },
     "Delete File": {
         "prefix": "delfile",
         "body": [
-            "delfile(${1:Path})"
+            "delfile('$0')"
         ],
         "description": "Deletes the file located at Path."
     },
     "Delete Folder": {
         "prefix": "delfolder",
         "body": [
-            "delfolder(${1:Path})"
+            "delfolder('$0')"
         ],
         "description": "Deletes the folder located at Path."
     },
@@ -542,70 +542,98 @@
     "Set Clipboard": {
         "prefix": "setclipboard",
         "body": [
-            "setclipboard(${1:Content})"
+            "setclipboard('$0')"
         ],
         "description": "Sets Content to the clipboard."
     },
     "Set Fast Flag": {
         "prefix": "setfflag",
         "body": [
-            "setffag(${1:Flag}, ${2:Value})"
+            "setffag('$0')"
         ],
         "description": "Sets Flag's value to Value."
     },
     "Get Custom Asset": {
         "prefix": "getcustomasset",
         "body": [
-            "getcustomasset(${1:Path})"
+            "getcustomasset('$0')"
         ],
         "description": "Returns a string that can be used as a fake Asset ID for Gui elements."
     },
     "Get Special Info": {
         "prefix": "getspecialinfo",
         "body": [
-            "getspecialinfo(${1:Object})"
+            "getspecialinfo($0)"
         ],
         "description": "Returns a table of special properties for MeshParts, UnionOperations, and Terrain instances."
     },
     "Message Box": {
         "prefix": "messagebox",
         "body": [
-            "messagebox(${1:Text}, ${2:Title}, ${3:Flag})"
+            "messagebox('$0')"
         ],
         "description": "Creates a message box."
     },
-    "Get Objects": {
-        "prefix": "game:GetObjects",
+    "Http Get": {
+        "prefix": ["HttpGet", "game:HttpGet"],
         "body": [
-            "game:GetObjects(${1:AssetId})"
+            "game:HttpGet('$0')"
+        ],
+        "description": "Creates an http request with method GET and returns the body."
+    },
+    "Http Get Async": {
+        "prefix": ["HttpGetAsync", "game:HttpGetAsync"],
+        "body": [
+            "game:HttpGetAsync('$0')"
+        ],
+        "description": "Creates an http request with method GET and returns the body."
+    },
+    "Http Post": {
+        "prefix": ["HttpPost", "game:HttpPost"],
+        "body": [
+            "game:HttpPost('$0')"
+        ],
+        "description": "Creates an http request with method POST and returns the body."
+    },
+    "Http Post Async": {
+        "prefix": ["HttpPostAsync", "game:HttpPostAsync"],
+        "body": [
+            "game:HttpPostAsync('$0')"
+        ],
+        "description": "Creates an http request with method POST and returns the body."
+    },
+    "Get Objects": {
+        "prefix": ["GetObjects", "game:GetObjects"],
+        "body": [
+            "game:GetObjects('$0')"
         ],
         "description": "Returns a table of all objects for the specified AssetId."
     },
     "Queue On Teleport": {
         "prefix": "queue_on_teleport",
         "body": [
-            "queue_on_teleport(${1:Code})"
+            "queue_on_teleport('$0')"
         ],
         "description": "Executes Code after the local player is teleported."
     },
     "Request": {
         "prefix": "request",
         "body": [
-            "request(${1:Options})"
+            "request({\nUrl = '$0'\n})"
         ],
         "description": "Creates an HTTP request with Options."
     },
     "Set Parent Internal": {
         "prefix": "setparentinternal",
         "body": [
-            "setparentinternal(${1:Object}, ${2:Parent})"
+            "setparentinternal($0)"
         ],
         "description": "Internally sets the parent of Object to Parent without firing any signals."
     },
     "Add Child Internal": {
         "prefix": "addchildinternal",
         "body": [
-            "addchildinternal(${1:Parent}, ${2:Object})"
+            "addchildinternal($0)"
         ],
         "description": "Internally adds Object to Parent without firing any signals."
     },
@@ -640,14 +668,14 @@
     "Set FPS Cap": {
         "prefix": "setfpscap",
         "body": [
-            "setfpscap(${1:Cap})"
+            "setfpscap($0)"
         ],
         "description": "Sets the fps cap to Cap."
     },
     "Run Secure": {
         "prefix": "run_secure",
         "body": [
-            "run_secure(${1:Encrypted})"
+            "run_secure('$0')"
         ],
         "description": "Loads Encrypted as a chunk."
     },
@@ -661,21 +689,21 @@
     "Set Network Mode": {
         "prefix": "setnetworkmode",
         "body": [
-            "setnetworkmode(${1:Mode})"
+            "setnetworkmode($0)"
         ],
         "description": "Sets the current network mode to Mode."
     },
     "Luau Compile": {
         "prefix": "luau_compile",
         "body": [
-            "luau_compile(${1:String})"
+            "luau_compile('$0')"
         ],
         "description": "Returns a Luau compiled version of String."
     },
     "Luau Load": {
         "prefix": "luau_load",
         "body": [
-            "luau_load()"
+            "luau_load('$0')"
         ],
         "description": "Loads a Luau compiled string as a chunk."
     },
@@ -684,7 +712,7 @@
     "Krnl Safe Call": {
         "prefix": "KRNL_SAFE_CALL",
         "body": [
-            "KRNL_SAFE_CALL(${1:Function}, ${2:Args...})"
+            "KRNL_SAFE_CALL($0)"
         ],
         "description": "Calls function Function with Args in a LocalScript environment."
     },
@@ -698,14 +726,14 @@
     "Unlock Module": {
         "prefix": "unlockModule",
         "body": [
-            "unlockModule(${1:Module})"
+            "unlockModule($0)"
         ],
         "description": "Unlocks Module."
     },
     "Lock Module": {
         "prefix": "lockModule",
         "body": [
-            "lockModule()"
+            "lockModule($0)"
         ],
         "description": "Locks Module."
     },
@@ -726,21 +754,21 @@
     "Assign Socket": {
         "prefix": "assign_socket",
         "body": [
-            "assign_socket(${1:Socket}, ${2:Url})"
+            "assign_socket($0)"
         ],
         "description": "Assigns Socket's connection to Url."
     },
     "Send Socket": {
         "prefix": "send_socket",
         "body": [
-            "send_socket(${1:Socket}, ${2:Message})"
+            "send_socket($0)"
         ],
         "description": "Sends a message through Socket's connection."
     },
     "Close Socket": {
         "prefix": "close_socket",
         "body": [
-            "close_socket(${1:Socket})"
+            "close_socket($0)"
         ],
         "description": "Closes Socket's connection."
     },
@@ -749,98 +777,98 @@
     "And": {
         "prefix": ["band", "bit.band"],
         "body": [
-            "bit.band(${1:x}, ${2:disp})"
+            "bit.band($0)"
         ],
-        "description": "Returns the bitwise and of its operands."
+        "description": "Returns the bitwise AND of its operands."
     },
     "Or": {
         "prefix": ["bor", "bit.bor"],
         "body": [
-            "bit.bor(${1:x}, ${2:disp})"
+            "bit.bor($0)"
         ],
-        "description": "Returns the bitwise or of its operands."
+        "description": "Returns the bitwise OR of its operands."
     },
     "Exclusive Or": {
         "prefix": ["bxor", "bit.bxor"],
         "body": [
-            "bit.bxor(${1:x}, ${2:disp})"
+            "bit.bxor($0)"
         ],
-        "description": "Returns the bitwise exclusive or of its operands."
+        "description": "Returns the bitwise EXCLUSIVE OR of its operands."
     },
     "Not": {
         "prefix": ["bnot", "bit.bnot"],
         "body": [
-            "bit.bnot(${1:x})"
+            "bit.bnot($0)"
         ],
         "description": "Returns the bitwise negation of x."
     },
     "Left Shift": {
         "prefix": ["lshift", "bit.lshift"],
         "body": [
-            "bit.lshift(${1:x}, ${2:disp})"
+            "bit.lshift($0)"
         ],
         "description": "Returns the number x shifted disp bits to the left."
     },
     "Right Shift": {
         "prefix": ["rshift", "bit.rshift"],
         "body": [
-            "bit.rshift(${1:x}, ${2:disp})"
+            "bit.rshift($0)"
         ],
         "description": "Returns the number x shifted disp bits to the right."
     },
     "Arithmetic Shift": {
         "prefix": ["arshift", "bit.arshift"],
         "body": [
-            "bit.arshift(${1:x}, ${2:disp})"
+            "bit.arshift($0)"
         ],
         "description": "Returns the number x shifted disp bits to the right. The number disp may be any representable integer. Negative displacements shift to the left."
     },
     "Left Rotate": {
         "prefix": ["lrotate", "bit.lrotate"],
         "body": [
-            "bit.lrotate(${1:x}, ${2:disp})"
+            "bit.lrotate($0)"
         ],
         "description": "Returns the number x rotated disp bits to the left."
     },
     "Right Rotate": {
         "prefix": ["rrotate", "bit.rrotate"],
         "body": [
-            "bit.rrotate(${1:x}, ${2:disp})"
+            "bit.rrotate($0)"
         ],
         "description": "Returns the number x rotated disp bits to the right."
     },
     "Extract": {
         "prefix": ["extract", "bit.extract"],
         "body": [
-            "bit.extract(${1:x}, ${2:field}, ${3:width})"
+            "bit.extract($0)"
         ],
         "description": "Returns the unsigned number formed by the bits field to field + width - 1 from x."
     },
     "Replace": {
         "prefix": ["replace", "bit.replace"],
         "body": [
-            "bit.replace(${1:x}, ${2:field}, ${3:width})"
+            "bit.replace($0)"
         ],
         "description": "Returns a copy of x with the bits field to field + width - 1 replaced by the value v."
     },
     "Test": {
         "prefix": ["btest", "bit.btest"],
         "body": [
-            "bit.btest(${1:x})"
+            "bit.btest($0)"
         ],
         "description": "Returns a boolean signalling whether the bitwise and of its operands is different from zero."
     },
     "Count Left": {
         "prefix": ["countlz", "bit.countlz"],
         "body": [
-            "bit.countlz(${1:x})"
+            "bit.countlz($0)"
         ],
         "description": "Returns the number of consecutive zero bits in the 32-bit representation of x starting from left-most (most significant) bit. Returns 32 if x is zero."
     },
     "Count Right": {
         "prefix": ["countrz", "bit.countrz"],
         "body": [
-            "bit.countrz(${1:x})"
+            "bit.countrz($0)"
         ],
         "description": "Returns the number of consecutive zero bits in the 32-bit representation of x starting from the right-most (least significatn) bit. Returns 32 if x is zero."
     },
@@ -849,21 +877,21 @@
     "Hash": {
         "prefix": ["sha384_hash", "Krnl.crypt.hash"],
         "body": [
-            "Krnl.crypt.hash(${1:Data})"
+            "Krnl.crypt.hash('$0')"
         ],
         "description": "Hashes Data with SHA-384."
     },
     "Base64 Encode": {
         "prefix": ["base64_encode", "Krnl.Base64.Encode"],
         "body": [
-            "Krnl.Base64.Encode(${1:Data})"
+            "Krnl.Base64.Encode('$0')"
         ],
         "description": "Encodes Data with Base64."
     },
     "Base64 Decode": {
         "prefix": ["base64_decode", "Krnl.Base64.Decode"],
         "body": [
-            "Krnl.Base64.Decode(${1:Data})"
+            "Krnl.Base64.Decode('$0')"
         ],
         "description": "Decodes Data with Base64."
     },
@@ -872,105 +900,105 @@
     "Get Constant": {
         "prefix": ["getconstant", "debug.getconstant"],
         "body": [
-            "debug.getconstant(${1:f}, ${2:idx})"
+            "getconstant($0)"
         ],
         "description": "Returns the constant at index idx in function f or level f."
     },
     "Get Constants": {
         "prefix": ["getconstants", "debug.getconstants"],
         "body": [
-            "debug.getconstants(${1:f})"
+            "getconstants($0)"
         ],
         "description": "Returns the constants in function f or at level f."
     },
     "Set Constant": {
         "prefix": ["setconstant", "debug.setconstant"],
         "body": [
-            "debug.setconstant(${1:f}, ${2:idx}, ${3:value})"
+            "setconstant($0)"
         ],
         "description": "Sets constant idx to tuple value at level or function f."
     },
     "Get Upvalue": {
         "prefix": ["getupvalue", "debug.getupvalue"],
         "body": [
-            "debug.getupvalue(${1:f}, ${2:idx})"
+            "getupvalue($0)"
         ],
         "description": "Returns the upvalue with name idx in function or level f."
     },
     "Get Upvalues": {
         "prefix": ["getupvalues", "debug.getupvalues"],
         "body": [
-            "debug.getupvalues(${1:f})"
+            "getupvalues($0)"
         ],
         "description": "Retrieves the upvalues in function f or at level f."
     },
     "Set Upvalue": {
         "prefix": ["setupvalue", "debug.setupvalue"],
         "body": [
-            "debug.setupvalue(${1:f}, ${2:idx}, ${3:value})"
+            "setupvalue($0)"
         ],
         "description": "Sets upvalue idx to value at level or function f."
     },
     "Get Proto": {
         "prefix": ["getproto", "debug.getproto"],
         "body": [
-            "debug.getproto(${1:f}, ${2:idx}, ${3:activated?})"
+            "getproto($0)"
         ],
         "description": "Gets the inner function of f at index."
     },
     "Get Protos": {
         "prefix": ["getprotos", "debug.getprotos"],
         "body": [
-            "debug.getprotos(${1:f})"
+            "getprotos($0)"
         ],
         "description": "Returns a table containing the inner function f."
     },
     "Get Stack": {
         "prefix": ["getstack", "debug.getstack"],
         "body": [
-            "debug.getstack(${1:f}, ${2:idx})"
+            "getstack($0)"
         ],
         "description": "Gets the method stack at level or function f."
     },
     "Set Stack": {
         "prefix": ["setstack", "debug.setstack"],
         "body": [
-            "debug.setstack(${1:f}, ${2:idx}, ${3:value})"
+            "setstack($0)"
         ],
         "description": "Sets the stack indice at idx to value at level or function f."
     },
     "Get Info": {
         "prefix": ["getinfo", "debug.getinfo"],
         "body": [
-            "debug.getinfo(${1:f})"
+            "getinfo($0)"
         ],
         "description": "Returns a table of information about function f."
     },
     "Info": {
         "prefix": ["info", "debug.info"],
         "body": [
-            "debug.example(${1:f}, ${2:idx})"
+            "info($0)"
         ],
         "description": "Allows programmatic inspection of the call stack."
     },
     "Traceback": {
         "prefix": ["traceback", "debug.traceback"],
         "body": [
-            "debug.traceback(${1:message}, ${2:level})"
+            "traceback($0)"
         ],
         "description": "Returns a traceback of the current function call stack as a string."
     },
     "Profile Begin": {
         "prefix": ["profilebegin", "debug.profilebegin"],
         "body": [
-            "debug.profilebegin(${1:Label})"
+            "profilebegin('$0')"
         ],
         "description": "Opens a microprofiler label."
     },
     "Profile End": {
         "prefix": ["profileend", "debug.profileend"],
         "body": [
-            "debug.profileend()"
+            "profileend($0)"
         ],
         "description": "Closes the top microprofiler label."
     },
@@ -979,7 +1007,7 @@
     "New Drawing": {
         "prefix": "Drawing.new",
         "body": [
-            "Drawing.new(${1:Class})"
+            "Drawing.new('$0')"
         ],
         "description": "Returns a new Drawing object with Class."
     },
@@ -991,7 +1019,7 @@
         "description": "Removes all Drawing objects."
     },
     "Fonts": {
-        "prefix": "Drawing.Fonts",
+        "prefix": ["Fonts", "Drawing.Fonts"],
         "body": [
             "Drawing.Fonts"
         ],
@@ -999,17 +1027,31 @@
     },
 
     // 14 - Krnl Library
+    "Krnl": {
+        "prefix": "Krnl",
+        "body": [
+            "Krnl"
+        ],
+        "description": "The Krnl table."
+    },
+    "Vendor": {
+        "prefix": ["Vendor", "Krnl.Vendor"],
+        "body": [
+            "Krnl.Vendor"
+        ],
+        "description": "The Vendor table."
+    },
     "Require": {
         "prefix": ["Require", "Krnl:Require"],
         "body": [
-            "Krnl:Require(${1:Module})"
+            "Krnl:Require('$0')"
         ],
         "description": "Returns a module."
     },
     "Load Async": {
         "prefix": ["LoadAsync", "Krnl:LoadAsync"],
         "body": [
-            "Krnl:LoadAsync(${1:Url})"
+            "Krnl:LoadAsync('$0')"
         ],
         "description": "Loads the contents of Url as a chunk. Equivalent to loadstring(game:HttpGet(Url)()"
     },
@@ -1025,7 +1067,7 @@
     "Connect Websocket": {
         "prefix": ["WebSocket.connect", "Krnl.WebSocket.connect"],
         "body": [
-            "WebSocket.connect(${1:Url})"
+            "WebSocket.connect('$0')"
         ],
         "description": "Attempts to connect to Url."
     },
